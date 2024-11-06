@@ -1,10 +1,9 @@
 import request from 'superagent'
-import { Welcome } from '../models/welcome.ts'
-
-const serverURL = '/api/v1'
+import { Movies } from '../models/movies.ts'
 
 // *** EXAMPLE ***
-export function getWelcome(): Promise<Welcome> {
-  return request.get(`${serverURL}/welcome`).then((response) => response.body)
+export async function getMovies(title: string): Promise<Movies> {
+  const response = await request.get(`/api/v1/movies?title=${title}`)
+  return response.body
 }
 // ***   ***   ***
