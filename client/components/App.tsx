@@ -1,4 +1,5 @@
-// App.tsx
+import Headers from './Header.tsx'
+import Footer from './Footer.tsx'
 import { getMovies } from '../apiClient.ts'
 import { useQuery } from '@tanstack/react-query'
 import { useState } from 'react'
@@ -28,6 +29,7 @@ function App() {
 
   return (
     <>
+      <Headers />
       <form onSubmit={handleSubmit}>
         <label htmlFor="title">Movie Title:</label>
         <input id="title" type="text" value={title} onChange={handleChange} />
@@ -51,6 +53,9 @@ function App() {
           <img src={movie.Poster} alt={`${movie.Title} Poster`} />
         </div>
       )}
+      <br />
+      <br />
+      <Footer />
     </>
   )
 }

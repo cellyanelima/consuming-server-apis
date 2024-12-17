@@ -9,7 +9,7 @@ const apiKey = process.env.OMDB_API_KEY
 // GET /api/v1/movies/
 router.get('/', async (req, res) => {
   const { title } = req.query
-  console.log(req.query)
+  //console.log(req.query)
   try {
     if (apiKey == undefined) {
       throw new Error('Missing apiKey environment variable')
@@ -22,7 +22,7 @@ router.get('/', async (req, res) => {
     const apiResponse = await request.get(
       `http://www.omdbapi.com/?apikey=${apiKey}&t=${title}`,
     )
-    console.log(apiResponse.body)
+    //console.log(apiResponse.body)
     res.json(apiResponse.body)
   } catch (err) {
     if (err instanceof Error) {
